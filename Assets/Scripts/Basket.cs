@@ -9,7 +9,9 @@ public class Basket : MonoBehaviour
     public GameObject collidingObject;
     public Basket basket;
     public Game game;
-    
+    public AudioSource BasketAudio;
+    public AudioClip Swish;
+
     void Start()
     {
         basket = this;
@@ -36,8 +38,8 @@ public class Basket : MonoBehaviour
             collidingObject.GetComponent<Ball>().Scored = true;
             Debug.Log("Basket went through the goal!");
             updateScore(game);
-           
-            
+            BasketAudio.PlayOneShot(Swish);
+
         }
     }
     
